@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crisanto Villaceran | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #f1f5f9;
+  overflow-x: hidden;
+}
+
+/* NAVIGATION */
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 15px 25px;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: #38bdf8;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #e2e8f0;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+  color: #38bdf8;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* OVERLAY */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  z-index: 900;
+}
+
+#overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Prevent scroll */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* SECTIONS */
+section {
+  display: none;
+  padding: 140px 40px 60px;
+  min-height: 100vh;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+section.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* HERO */
+.hero img {
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+  border: 3px solid #38bdf8;
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.5);
+  object-fit: cover;
+}
+
+.hero .intro {
+  max-width: 600px;
+  text-align: center;
+}
+
+.hero .intro h1 {
+  font-size: 2.8rem;
+  background: linear-gradient(to right, #38bdf8, #0ea5e9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero .intro p {
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+.hero .btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 30px;
+  background: linear-gradient(45deg, #38bdf8, #0ea5e9);
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: 0.3s ease;
+}
+
+.hero .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(56,189,248,0.4);
+}
+
+/* CARD */
+.card {
+  max-width: 750px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.grid-item {
+  background: rgba(255,255,255,0.08);
+  border-radius: 15px;
+  padding: 18px;
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.grid-item:hover {
+  background: #38bdf8;
+  color: #0f172a;
+  transform: scale(1.05);
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.9);
+  font-size: 0.9rem;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  nav {
+    padding: 15px 20px;
+  }
+
+  .menu-toggle {
+    display: block;
+    color: white;
+    z-index: 1100;
+  }
+
+  nav ul {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 75%;
+    background: #0f172a;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    transition: 0.4s ease;
+    box-shadow: -5px 0 20px rgba(0,0,0,0.5);
+  }
+
+  nav ul.show {
+    right: 0;
+  }
+
+  nav ul li a {
+    font-size: 1.2rem;
+  }
+
+  section {
+    padding: 120px 20px 40px;
+  }
+
+  section.active {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .hero img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .hero .intro h1 {
+    font-size: 2rem;
+  }
+
+  .card {
+    padding: 25px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="nav-container">
+    <div class="logo">My Portfolio</div>
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    <ul id="nav-links">
+      <li><a href="#" class="tab-link active" data-target="home">Home</a></li>
+      <li><a href="#" class="tab-link" data-target="about">About</a></li>
+      <li><a href="#" class="tab-link" data-target="objective">Objective</a></li>
+      <li><a href="#" class="tab-link" data-target="skills">Skills</a></li>
+      <li><a href="#" class="tab-link" data-target="projects">Projects</a></li>
+      <li><a href="#" class="tab-link" data-target="contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div id="overlay"></div>
+
+<section id="home" class="active hero">
+  <img src="shan.jpg" alt="Profile Picture">
+  <div class="intro">
+    <h1>Crisanto Villaceran</h1>
+    <p>A BSIT student passionate about building clean, responsive, and user-friendly web applications.</p>
+    <a href="#" class="btn tab-link" data-target="contact">Hire Me</a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="card">
+    <h2>About Me</h2>
+    <p><strong>Name:</strong> Crisanto Villaceran</p>
+    <p><strong>Course:</strong> Bachelor of Science in Information Technology</p>
+    <p><strong>Year:</strong> 3rd Year College</p>
+  </div>
+</section>
+
+<section id="objective">
+  <div class="card">
+    <h2>Objective</h2>
+    <p>To become a professional software developer specializing in modern web and application development.</p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="card">
+    <h2>Skills</h2>
+    <div class="grid">
+      <div class="grid-item">HTML</div>
+      <div class="grid-item">CSS</div>
+      <div class="grid-item">JavaScript</div>
+      <div class="grid-item">Responsive Design</div>
+      <div class="grid-item">UI/UX Fundamentals</div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="card">
+    <h2>Projects</h2>
+    <div class="grid">
+      <div class="grid-item">Portfolio Website</div>
+      <div class="grid-item">Student Management System</div>
+      <div class="grid-item">E-commerce UI</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="card">
+    <h2>Contact</h2>
+    <p>Email: your.email@example.com</p>
+    <p>Phone: 09XXXXXXXXX</p>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Crisanto Villaceran. All rights reserved.
+</footer>
+
+<script>
+const tabs = document.querySelectorAll('.tab-link');
+const sections = document.querySelectorAll('section');
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.getElementById('nav-links');
+const overlay = document.getElementById('overlay');
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    tabs.forEach(t => t.classList.remove('active'));
+    sections.forEach(s => s.classList.remove('active'));
+
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.target).classList.add('active');
+
+    navLinks.classList.remove('show');
+    overlay.classList.remove('show');
+    document.body.classList.remove('menu-open');
+  });
+});
+
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('show');
+  overlay.classList.toggle('show');
+  document.body.classList.toggle('menu-open');
+});
+
+overlay.addEventListener('click', () => {
+  navLinks.classList.remove('show');
+  overlay.classList.remove('show');
+  document.body.classList.remove('menu-open');
+});
+</script>
+
+</body>
+</html>
